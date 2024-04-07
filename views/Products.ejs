@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST API APPLICATION</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Drezztore</h1>
+
+    <h3>Products</h3>
+
+    <table style="width:100%;">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Category</th>
+        </tr>
+        <tr>
+            <% products.forEach((product)=> { %>
+        </tr>
+        <tr>
+            <td>
+                <%= product.name %>
+            </td>
+            <td>
+                <%= product.description %>
+            </td>
+            <td>
+                <%= product.price %>
+            </td>
+            <td>
+                <%= product.quantity %>
+            </td>
+            <td>
+                <%= product.category %>
+            </td>
+            <% }); %>
+        </tr>
+    </table>
+
+</body>
+
+</html>

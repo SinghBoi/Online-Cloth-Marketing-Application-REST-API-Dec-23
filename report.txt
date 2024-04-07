@@ -1,0 +1,169 @@
+Rapportstruktur
+
+1. För att hämta alla products och se som webbsida så gör man en GET REQUEST till servern
+
+GET/
+
+
+2. För att hämta alla products så gör man en GET REQUEST till servern
+
+GET /api/products
+
+RESPONSE 200 OK
+  { 
+    "_id": "6575e6e0bcd636ca6601c496",
+	"name": "T-shirts",
+	"description": "Mens Wear",
+	"price": 1000,
+	"quantity": 25,
+	"category": "Clothes",
+	"__v": 0
+	},
+  { 
+    "_id": "6575e6ffbcd636ca6601c498",
+	"name": "Jeans",
+	"description": "Mens Wear",
+	"price": 950,
+	"quantity": 50,
+	"category": "Clothes",
+	"__v": 0 
+    },
+  { 
+    "_id": "6575e714bcd636ca6601c49c",
+	"name": "Troja",
+	"description": "Mens Wear",
+	"price": 1550,
+	"quantity": 40,
+	"category": "Clothes",
+	"__v": 0 
+  },
+
+2. För att hämta ett product med namn så gör man en GET REQUEST till servern
+
+GET /api/products?name:Troja
+
+{ 
+    "_id": "6575e714bcd636ca6601c49c",
+	"name": "Troja",
+	"description": "Mens Wear",
+	"price": 1550,
+	"quantity": 40,
+	"category": "Clothes",
+	"__v": 0 
+  },
+
+3. För att hämta ett product med id så gör man en GET REQUEST till servern
+
+GET /api/products/id:6575e714bcd636ca6601c49c
+
+{ 
+    "_id": "6575e714bcd636ca6601c49c",
+	"name": "Troja",
+	"description": "Mens Wear",
+	"price": 1550,
+	"quantity": 40,
+	"category": "Clothes",
+	"__v": 0 
+  },
+
+4. Om något går fel vid hämta av en product med GET REQUEST
+
+GET /api/products/id:
+    { fel: false, id: " " }
+
+RESPONSE 404 Not Found  
+
+5. Om något går fel vid hämta av en product med GET REQUEST med servern
+
+GET /api/products/id:
+    { fel: false, id: " " }
+
+RESPONSE 500 Internal Servern Error
+
+6. För att skapa en product så gör man en POST REQUEST till servern
+
+POST /api/products
+{
+	"name": "Belt",
+	"description": "Mens Accesory",
+	"price": 600,
+	"quantity": 18,
+ 	"category": "Accesories"
+}
+
+RESPONSE 201 Created
+/api/products/....
+
+7. Om något går fel vid skapandet av en product med POST REQUEST
+
+POST /api/products
+    { fel: false, name: "Belt" }
+
+RESPONSE 400 Bad Request
+
+8. För att ändra en product så gör man en PUT REQUEST till servern
+
+PUT /api/products/id:6575e6ffbcd636ca6601c49a
+{
+	"_id": "6575e6ffbcd636ca6601c49a",
+	"name": "Jeans",
+	"description": "Mens Wear",
+	"price": 950,
+	"quantity": 50,
+	"category": "Clothes",
+	"__v": 0
+},
+
+RESPONSE 200 OK
+/api/products/id: ....
+
+9. Om något går fel vid ändrat av en product med PUT REQUEST
+
+PUT /api/products/id: ....
+    { fel: false, name: "Jeans" }
+
+RESPONSE 404 Not Found
+
+10. Om något går fel vid ändrat av en product med PUT REQUEST med servern
+
+PUT /api/products/id:
+    { fel: false, id: " " }
+
+RESPONSE 500 Internal Servern Error
+
+11. För att radera en product med id så gör man en DELETE REQUEST till servern
+
+DELETE /api/products/id:6575e6ffbcd636ca6601c49a
+{
+	"_id": "6575e6ffbcd636ca6601c49a",
+	"name": "Jeans",
+	"description": "Mens Wear",
+	"price": 950,
+	"quantity": 50,
+	"category": "Clothes",
+	"__v": 0
+},
+
+RESPONSE 200 OK
+/api/products/id: ....
+
+12. Om något går fel vid radera av en product med DELETE REQUEST med servern
+
+DELETE /api/products/id:
+    { fel: false, id: " " }
+
+RESPONSE 500 Internal Servern Error
+
+11. För att radera alla products så gör man en DELETE REQUEST till servern
+
+DELETE /api/products/
+
+RESPONSE 200 OK
+/api/products/
+
+14. Om något går fel vid radera av en product med DELETE REQUEST med servern
+
+DELETE /api/products/
+    { fel: false,}
+
+RESPONSE 500 Internal Servern Error
